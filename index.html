@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bonnaroo Boys</title>
+    <script src="https://cdn.babylonjs.com/babylon.js"></script>
+    <script src="https://cdn.babylonjs.com/loaders/babylonjs.loaders.min.js"></script>
+    <style>
+        html, body {
+            overflow: hidden;
+            width: 100%;
+            height: 100%;
+            margin: 0;
+            padding: 0;
+        }
+        #renderCanvas {
+            width: 100%;
+            height: 100%;
+            touch-action: none;
+        }
+
+        #loadingScreen {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background-color: #161616;
+            z-index: 1000;
+        }
+
+        #loadingSpinner {
+            border: 6px solid #eee2ae;
+            border-top: 6px solid #79c531;
+            border-radius: 50%;
+            width: 69px;
+            height: 69px;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            margin-top: -15px;
+            margin-left: -15px;
+            animation: spin 2s linear infinite;
+        }
+
+        .hide { 
+            opacity: 0;
+            transition: opacity 0.5s ease-in-out;
+            pointer-events: none;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+    </style>
+</head>
+<body style="overflow: hidden;">
+    <div id="loadingScreen">
+        <div id="loadingSpinner"></div>
+    </div>
+    <canvas id="renderCanvas"></canvas>
+    <script>
+        const canvas = document.getElementById("renderCanvas");
+        const engine = new BABYLON.Engine(canvas, true);
+        const createScene = function () {
+            const scene = new BABYLON.Scene(engine);
+            const camera = new BABYLON.ArcRotateCamera("Camera", Math.PI / 4, Math.PI / 4, 15, new BABYLON.Vector3(0, 0, 0), scene);
+
+            camera.lowerRadiusLimit = 5;
+            camera.upperRadiusLimit = 20;
+            camera.lowerBetaLimit = 0.1;
+            camera.upperBetaLimit = (Math.PI / 2) * 0.9;
+
+
+            camera.attachControl(canvas, true);
+            const light = new BABYLON.HemisphericLight("light", new BABYLON.Vector3(1, 1, 0), scene);
+
+            // Disable babylon loading screen
+            BABYLON.DefaultLoadingScreen.prototype.displayLoadingUI = function () {
+                document.getElementById("loadingScreen").classList.remove("hide");
+
+            };
+            BABYLON.DefaultLoadingScreen.prototype.hideLoadingUI = function () {
+                // hide the loading screen
+                document.getElementById("loadingScreen").classList.add("hide");
+            };
+            BABYLON.SceneLoader.Append("https://cdn.jsdelivr.net/gh/KennyStanleyJr/bonnaroo-boys@main/models/", "campsite-with-car.glb", scene, (scene) => {
+                console.log("model loaded")
+            });
+            const hdrTexture = BABYLON.CubeTexture.CreateFromPrefilteredData("https://cdn.jsdelivr.net/gh/KennyStanleyJr/bonnaroo-boys@main/environments/environment.env", scene);
+            scene.environmentTexture = hdrTexture;
+
+            // Make skybox with hdr texture
+            const hdrSkybox = BABYLON.Mesh.CreateBox("hdrSkyBox", 1000.0, scene);
+            const hdrSkyboxMaterial = new BABYLON.PBRMaterial("skyBox", scene);
+            hdrSkyboxMaterial.backFaceCulling = false;
+            hdrSkyboxMaterial.reflectionTexture = hdrTexture.clone();
+            hdrSkyboxMaterial.reflectionTexture.coordinatesMode = BABYLON.Texture.SKYBOX_MODE;
+            hdrSkyboxMaterial.disableLighting = true;
+            hdrSkyboxMaterial.roughness = 0.09;
+            hdrSkybox.material = hdrSkyboxMaterial;
+            
+            hdrSkybox.position.y = 50;
+
+            return scene;
+        }
+        const scene = createScene();
+        engine.runRenderLoop(function () {
+            scene.render();
+        });
+        window.addEventListener("resize", function () {
+            engine.resize();
+        });
+    </script>
+</body>
+</html>
