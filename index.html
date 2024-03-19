@@ -139,10 +139,10 @@
         const engine = new BABYLON.Engine(canvas, true);
         const createScene = function () {
             const scene = new BABYLON.Scene(engine);
-            const camera = new BABYLON.ArcRotateCamera("Camera", Math.PI / 4, Math.PI / 4, 15, new BABYLON.Vector3(0, 0, 0), scene);
+            const camera = new BABYLON.ArcRotateCamera("Camera", Math.PI / 4, Math.PI / 4, 20, new BABYLON.Vector3(0, 0, 0), scene);
 
             camera.lowerRadiusLimit = 5;
-            camera.upperRadiusLimit = 20;
+            camera.upperRadiusLimit = 30;
             camera.lowerBetaLimit = 0.1;
             camera.upperBetaLimit = (Math.PI / 2) * 0.9;
 
