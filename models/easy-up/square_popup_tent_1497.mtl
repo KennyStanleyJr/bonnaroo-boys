@@ -1,0 +1,68 @@
+newmtl square_popup_tent_1497_metal_MatSG
+Ni 1.6
+Ka 0 0 0
+d 1.0
+Ke 0.0
+Kd 0 0 0
+adobe_map_normal square_popup_tent_1497/square_popup_tent_1497_metal_Mat_normal.png
+Tr 0
+illum 7
+Ks 1 1 1
+adobe_translucence 1.0
+adobe_map_roughness square_popup_tent_1497/square_popup_tent_1497_metal_Mat_roughness.png
+adobe_interior_color 1.0 1.0 1.0
+adobe_density 1.0
+map_Pm square_popup_tent_1497/square_popup_tent_1497_metal_Mat_metallic.png
+Ns 16
+map_Kd square_popup_tent_1497/square_popup_tent_1497_metal_Mat_baseColor.png
+newmtl square_popup_tent_1497_ring_MatSG
+Ni 1.6
+Ka 0 0 0
+d 1.0
+Ke 0.0
+Kd 0 0 0
+adobe_map_normal square_popup_tent_1497/square_popup_tent_1497_ring_Mat_normal.png
+Tr 0
+illum 7
+Ks 1 1 1
+adobe_translucence 1.0
+adobe_map_roughness square_popup_tent_1497/square_popup_tent_1497_ring_Mat_roughness.png
+adobe_interior_color 1.0 1.0 1.0
+adobe_density 1.0
+map_Pm square_popup_tent_1497/square_popup_tent_1497_ring_Mat_metallic.png
+Ns 16
+map_Kd square_popup_tent_1497/square_popup_tent_1497_ring_Mat_baseColor.png
+newmtl square_popup_tent_1497_parts_MatSG
+Ni 1.6
+Ka 0 0 0
+d 1.0
+Ke 0.0
+Kd 0 0 0
+adobe_map_normal square_popup_tent_1497/square_popup_tent_1497_parts_Mat_normal.png
+Tr 0
+illum 7
+Ks 1 1 1
+adobe_translucence 1.0
+adobe_map_roughness square_popup_tent_1497/square_popup_tent_1497_parts_Mat_roughness.png
+adobe_interior_color 1.0 1.0 1.0
+adobe_density 1.0
+map_Pm square_popup_tent_1497/square_popup_tent_1497_parts_Mat_metallic.png
+Ns 16
+map_Kd square_popup_tent_1497/square_popup_tent_1497_parts_Mat_baseColor.png
+newmtl square_popup_tent_1497_tent_MatSG
+Pr 0.921
+Ni 1.6
+Ka 0 0 0
+d 1.0
+Ke 0.0
+Kd 0 0 0
+adobe_map_normal square_popup_tent_1497/square_popup_tent_1497_tent_Mat_normal.png
+Tr 0
+illum 7
+Ks 1 1 1
+adobe_translucence 1.0
+adobe_interior_color 1.0 1.0 1.0
+adobe_density 1.0
+map_Pm square_popup_tent_1497/square_popup_tent_1497_tent_Mat_metallic.png
+Ns 16
+map_Kd square_popup_tent_1497/square_popup_tent_1497_tent_Mat_baseColor.png
