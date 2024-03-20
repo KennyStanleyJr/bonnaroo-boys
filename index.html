@@ -159,7 +159,8 @@
                 // hide the loading screen
                 document.getElementById("loadingScreen").classList.add("hide");
             };
-            BABYLON.SceneLoader.Append("https://cdn.jsdelivr.net/gh/KennyStanleyJr/bonnaroo-boys@main/models/", "campsite-v4.glb", scene, (scene) => {
+            // BABYLON.SceneLoader.Append("https://cdn.jsdelivr.net/gh/KennyStanleyJr/bonnaroo-boys@main/models/", "campsite-v5.glb", scene, (scene) => {
+            BABYLON.SceneLoader.Append("./models/", "campsite-v5.glb", scene, (scene) => {
                 console.log("model loaded")
             });
             const hdrTexture = BABYLON.CubeTexture.CreateFromPrefilteredData("https://cdn.jsdelivr.net/gh/KennyStanleyJr/bonnaroo-boys@main/environments/environment.env", scene);
