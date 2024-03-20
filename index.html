@@ -139,7 +139,7 @@
         const engine = new BABYLON.Engine(canvas, true);
         const createScene = function () {
             const scene = new BABYLON.Scene(engine);
-            const camera = new BABYLON.ArcRotateCamera("Camera", Math.PI / 4, Math.PI / 4, 20, new BABYLON.Vector3(0, 0, 0), scene);
+            const camera = new BABYLON.ArcRotateCamera("Camera", Math.PI / 4, Math.PI / 4, 15, new BABYLON.Vector3(0, 0, 0), scene);
 
             camera.lowerRadiusLimit = 5;
             camera.upperRadiusLimit = 30;
@@ -159,7 +159,7 @@
                 // hide the loading screen
                 document.getElementById("loadingScreen").classList.add("hide");
             };
-            BABYLON.SceneLoader.Append("https://cdn.jsdelivr.net/gh/KennyStanleyJr/bonnaroo-boys@main/models/", "campsite-v2.glb", scene, (scene) => {
+            BABYLON.SceneLoader.Append("https://cdn.jsdelivr.net/gh/KennyStanleyJr/bonnaroo-boys@main/models/", "campsite-v4.glb", scene, (scene) => {
                 console.log("model loaded")
             });
             const hdrTexture = BABYLON.CubeTexture.CreateFromPrefilteredData("https://cdn.jsdelivr.net/gh/KennyStanleyJr/bonnaroo-boys@main/environments/environment.env", scene);
