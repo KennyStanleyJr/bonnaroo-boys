@@ -18,6 +18,7 @@
         width: 100%;
         height: 100%;
         margin: 0;
+        padding: 0;
       }
       #renderCanvas {
         width: 100%;
@@ -59,7 +60,7 @@
         }
       }
 
-      #info-button {
+      #infoButton {
         position: absolute;
         left: 2rem;
         top: 2rem;
@@ -68,17 +69,15 @@
         background: transparent;
         border: solid white 2px;
         border-radius: 50%;
-        color: white;
-        font-size: 2.5rem;
         cursor: pointer;
         transition: bottom 0.5s ease-in-out, scale 0.1s ease-in-out;
       }
 
-      #info-button:hover {
+      #infoButton:hover {
         scale: 1.1;
       }
 
-      #gallery-button {
+      #galleryButton {
         position: absolute;
         right: 2rem;
         bottom: 550px;
@@ -91,11 +90,11 @@
         transition: bottom 0.5s ease-in-out, scale 0.1s ease-in-out;
       }
 
-      #gallery-button.collapsed {
+      #galleryButton.collapsed {
         bottom: 2rem;
       }
 
-      #gallery-button:hover {
+      #galleryButton:hover {
         scale: 1.1;
       }
 
@@ -112,11 +111,11 @@
         transition: all 0.5s ease-in-out;
       }
 
-      .gallery-cell {
+      .galleryCell {
         width: 66%;
         height: 500px;
         margin-right: 10px;
-        counter-increment: gallery-cell;
+        counter-increment: galleryCell;
         border-radius: 10px;
         background-size: contain;
         background-position: center;
@@ -124,10 +123,10 @@
       }
 
       /* cell number */
-      .gallery-cell:before {
+      .galleryCell:before {
         display: block;
         text-align: center;
-        /* content: counter(gallery-cell); */
+        /* content: counter(galleryCell); */
         line-height: 500px;
         font-size: 80px;
         color: white;
@@ -144,7 +143,7 @@
       href="https://inforoo.com/thread/4994/ultimate-bonnaroo-camping-supply-list"
       target="_blank"
     >
-      <button id="info-button">
+      <button id="infoButton">
         <svg
           fill="white"
           height="30px"
@@ -153,7 +152,7 @@
           id="Capa_1"
           xmlns="http://www.w3.org/2000/svg"
           xmlns:xlink="http://www.w3.org/1999/xlink"
-          viewBox="0 0 487.3 487.3"
+          viewBox="0 0 489.4 489.4"
           xml:space="preserve"
         >
           <g>
@@ -175,7 +174,7 @@
       </button>
     </a>
 
-    <button id="gallery-button" class="collapsed">
+    <button id="galleryButton" class="collapsed">
       <svg
         fill="white"
         height="30px"
@@ -299,12 +298,12 @@
       const gallery = document.querySelector('.gallery')
       images.forEach(image => {
         const cell = document.createElement('div')
-        cell.className = 'gallery-cell'
+        cell.className = 'galleryCell'
         cell.style.backgroundImage = `url(${folderPath}${image})`
         gallery.appendChild(cell)
       })
 
-      const button = document.getElementById('gallery-button')
+      const button = document.getElementById('galleryButton')
       button.addEventListener('click', () => {
         gallery.classList.toggle('hide')
         button.classList.toggle('collapsed')
